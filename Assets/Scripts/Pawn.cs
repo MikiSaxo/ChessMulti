@@ -64,13 +64,13 @@ public class Pawn : MonoBehaviour
     private void DrawMovement()
     {
         ResetMovement();
-        print("down");
+        // print("down");
         GridManager.Instance.DrawPossibleMovement(PossibleMovement, _coord);
     }
 
     private void ResetMovement()
     {
-        print("reset");
+        // print("reset");
         GridManager.Instance.ResetPossibleMovement();
     }
 

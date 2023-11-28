@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using PlayerIOClient;
 using UnityEngine;
 
 
@@ -171,7 +172,7 @@ public class GridManager : MonoBehaviour
 
     public void MovePawn(Vector2Int newPos)
     {
-        print("movepawn");
+        // print("movepawn");
         var oldPawn = _pawnGrid[SelectedPawn.x, SelectedPawn.y].GetComponent<Pawn>();
         var sprite = oldPawn.CurrentSprite;
         var chessColor = oldPawn.PawnColor;
@@ -180,6 +181,8 @@ public class GridManager : MonoBehaviour
         
         _pawnGrid[newPos.x, newPos.y].GetComponent<Pawn>().InitChess(sprite, chessColor, movement, new Vector2Int(-1,-1));
 
+        PlayerIOScript.Instance.Pioconnection.Send("MOVE", SelectedPawn.x,SelectedPawn.y, newPos.x, newPos.y);
+        
         SelectedPawn = new Vector2Int(-1, -1);
     }
 
