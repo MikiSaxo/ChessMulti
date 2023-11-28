@@ -19,6 +19,7 @@ public class GridManager : MonoBehaviour
     private const int CHESS_SIZE = 8;
 
     [Header("Setup")] [SerializeField] private GameObject _pawnPrefab;
+    [SerializeField] private GameObject _hoverPrefab;
     [SerializeField] private Transform _boardParent;
     [SerializeField] private Transform _pawnParent;
     [SerializeField] private float _cellSize;
@@ -29,10 +30,13 @@ public class GridManager : MonoBehaviour
     [SerializeField] private Sprite[] _white;
     [SerializeField] private Sprite[] _black;
 
-    private SpriteRenderer[,] _placementGrid = new SpriteRenderer[CHESS_SIZE, CHESS_SIZE];
+    private Hover[,] _placementGrid = new Hover[CHESS_SIZE, CHESS_SIZE];
     private GameObject[,] _pawnGrid = new GameObject[CHESS_SIZE, CHESS_SIZE];
     private string _filePath;
     private string[] _chessMap;
+    private List<Hover> _placementEnabled = new List<Hover>();
+
+    public Vector2Int SelectedPawn { get; set; }
 
     private void Awake()
     {
@@ -64,7 +68,7 @@ public class GridManager : MonoBehaviour
                 board.GetComponent<Pawn>().InitBoard(_boardSquare[count % 2]);
                 PlacePawn(board, x, y);
 
-                AddHover(x, y, count);
+                AddHover(x, y);
 
                 AddPawn(x, y);
             }
@@ -73,14 +77,14 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    private void AddHover(int x, int y, int count)
+    private void AddHover(int x, int y)
     {
-        GameObject hover = Instantiate(new GameObject(), _boardParent);
-        var hoverSpr = hover.AddComponent<SpriteRenderer>();
-        hoverSpr.sprite = _boardSquare[count % 2];
-        hoverSpr.color = Color.magenta;
-        hoverSpr.enabled = false;
+        GameObject hover = Instantiate(_hoverPrefab, _boardParent);
+
+        var hoverSpr = hover.GetComponent<Hover>();
+        hoverSpr.InitHover(_boardSquare[0], new Vector2Int(x, y));
         _placementGrid[x, y] = hoverSpr;
+
         PlacePawn(hover, x, y);
     }
 
@@ -92,6 +96,14 @@ public class GridManager : MonoBehaviour
 
         char letter = _chessMap[y][x];
 
+        if (letter == '-')
+        {
+            GameObject pawnn = Instantiate(_pawnPrefab, _pawnParent);
+            pawnn.GetComponent<Pawn>().InitNoChess(new Vector2Int(x, y));
+            _pawnGrid[x, y] = pawnn;
+            PlacePawn(pawnn, x, y);
+            return;
+        }
 
         foreach (var pawnCharac in _pawnCharacs)
         {
@@ -128,13 +140,60 @@ public class GridManager : MonoBehaviour
 
     public void DrawPossibleMovement(Vector2Int[] coords, Vector2Int pawnCoord)
     {
+        SelectedPawn = pawnCoord;
         foreach (var coord in coords)
         {
-            print("draw");
-            _placementGrid[coord.x + pawnCoord.x, coord.y + pawnCoord.y].enabled = true;
+            var newX = coord.x + pawnCoord.x;
+            var newY = coord.y + pawnCoord.y;
+
+            if (newX >= CHESS_SIZE || newX < 0 || newY >= CHESS_SIZE || newY < 0)
+                continue;
+
+            if (!GetIfBoardEmpty(new Vector2Int(newX, newY)))
+                continue;
+
+            _placementGrid[newX, newY].GetSpriteRend().enabled = true;
+            _placementEnabled.Add(_placementGrid[newX, newY]);
         }
     }
 
+    public void ResetPossibleMovement()
+    {
+        if (_placementEnabled.Count <= 0)
+            return;
+        
+        foreach (var placement in _placementEnabled)
+        {
+            placement.GetSpriteRend().enabled = false;
+        }
+        _placementEnabled.Clear();
+    }
+
+    public void MovePawn(Vector2Int newPos)
+    {
+        print("movepawn");
+        var oldPawn = _pawnGrid[SelectedPawn.x, SelectedPawn.y].GetComponent<Pawn>();
+        var sprite = oldPawn.CurrentSprite;
+        var chessColor = oldPawn.PawnColor;
+        var movement = oldPawn.PossibleMovement; 
+        oldPawn.Deactivate();
+        
+        _pawnGrid[newPos.x, newPos.y].GetComponent<Pawn>().InitChess(sprite, chessColor, movement, new Vector2Int(-1,-1));
+
+        SelectedPawn = new Vector2Int(-1, -1);
+    }
+
+    public bool GetIfClickOnHover(Vector2Int coord)
+    {
+        foreach (var placement in _placementEnabled)
+        {
+            if (placement.Coord == coord) 
+                return true;
+        }
+
+        return false;
+    }
+    
     Vector3 GetWorldPosition(int x, int y)
     {
         return new Vector2(x * _cellSize, y * _cellSize);
@@ -158,5 +217,13 @@ public class GridManager : MonoBehaviour
     {
         Vector3 worldPos = worldCam.ScreenToWorldPoint(screenPos);
         return worldPos;
+    }
+
+    private bool GetIfBoardEmpty(Vector2Int coord)
+    {
+        if (_pawnGrid[coord.x, coord.y].GetComponent<Pawn>().PawnColor == ChessColor.Nothing)
+            return true;
+
+        return false;
     }
 }

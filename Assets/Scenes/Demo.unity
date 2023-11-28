@@ -546,6 +546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pawnPrefab: {fileID: 7788623745506923051, guid: a26d35e3b80f06f4a9adaca79d9db50a, type: 3}
+  _hoverPrefab: {fileID: 7788623745506923051, guid: a821380ea8dd8d946aa6a1345d41c242, type: 3}
   _boardParent: {fileID: 2016664893}
   _pawnParent: {fileID: 1857363769}
   _cellSize: 1.38

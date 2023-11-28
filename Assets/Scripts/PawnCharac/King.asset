@@ -16,3 +16,12 @@ MonoBehaviour:
   Sprites:
   - {fileID: 21300000, guid: 8cbeec1c38102ee469da4c9d2b7138dc, type: 3}
   - {fileID: 21300000, guid: eb62202dad9a51140a3a5f34e68d4297, type: 3}
+  PossibleMovements:
+  - {x: 1, y: 0}
+  - {x: -1, y: 0}
+  - {x: 0, y: 1}
+  - {x: 0, y: -1}
+  - {x: 1, y: -1}
+  - {x: 1, y: 1}
+  - {x: -1, y: -1}
+  - {x: -1, y: 1}

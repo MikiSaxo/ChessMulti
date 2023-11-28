@@ -6,18 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="86bb638e-69d2-49e4-af99-cdb4b5de2148" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ChessMulti/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ChessMulti/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DemoSettings.lighting" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/DemoSettings.lighting.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Pawn.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Pawn.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Plugins/PlayerIOUnity3DClient.dll.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Plugins/PlayerIOUnity3DClient.dll.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Demo.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Demo.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GridManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GridManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/plateau.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI/plateau.jpg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PawnCharac/Pawn.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PawnCharac/Pawn.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +102,7 @@
       <updated>1700584700067</updated>
       <workItem from="1700584705860" duration="2000" />
       <workItem from="1701166890489" duration="1903000" />
-      <workItem from="1701172732362" duration="7434000" />
+      <workItem from="1701172732362" duration="11683000" />
     </task>
     <servers />
   </component>
