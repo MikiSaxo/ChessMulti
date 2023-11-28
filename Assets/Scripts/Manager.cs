@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using PlayerIOClient;
 
 
-public class GameManager : MonoBehaviour {
+public class Manager : MonoBehaviour {
 
 	private Connection pioconnection;
 	private List<Message> msgList = new List<Message>(); //  Messsage queue implementation
