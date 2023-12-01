@@ -55,7 +55,7 @@ public class PlayerIOScript : MonoBehaviour
         //Create or join the room 
         client.Multiplayer.CreateJoinRoom(
             "UnityDemoRoom", //Room id. If set to null a random roomid is used
-            "UnityMushrooms", //The room type started on the server
+            "SamServer", //The room type started on the server
             true, //Should the room be visible in the lobby?
             null,
             null,
@@ -69,34 +69,45 @@ public class PlayerIOScript : MonoBehaviour
         Debug.Log("Joined Room.");
         // We successfully joined a room so set up the message handler
         Pioconnection = connection;
-        Pioconnection.OnMessage += handlemessage;
+        Pioconnection.OnMessage += HandleMessage;
         joinedroom = true;
 
         Pioconnection.Send("TEST", 42, "michel");
     }
 
-    void handlemessage(object sender, Message m)
+    void HandleMessage(object sender, Message m)
     {
         msgList.Add(m);
     }
-
-    void Update()
+    
+    private void ProcessMessageQueue()
     {
-        // process message queue
+        print($"length msgList : {msgList.Count}");
         foreach (Message m in msgList)
         {
             switch (m.Type)
             {
-                case "CHAT":
-                    Debug.Log(m.GetString(0));
-                    break;
                 case "MOVE":
-                    Debug.Log(" " + m.GetFloat(0) + m.GetFloat(1) + m.GetFloat(2) + m.GetFloat(3));
+                    // string pieceId = m.GetString(0);
+                    // Vector2Int moveCoordinates = new Vector2Int(m.GetInt(1), m.GetInt(2));
+                    // UI.DebugMessage($"move piece {pieceId} to {moveCoordinates.x},{moveCoordinates.y}");
+                    // Board.MovePiece(pieceId, moveCoordinates);
+                    print($"get pos bang");
+                    int oldPosX = m.GetInt(1);
+                    int oldPosY = m.GetInt(2);
+                    int newPosX = m.GetInt(3);
+                    int newPosY = m.GetInt(4);
+                    GridManager.Instance.MovePawn(new Vector2Int(newPosX, newPosY), new Vector2Int(oldPosX, oldPosY));
                     break;
             }
         }
 
-        // clear message queue after it's been processed
+        // Clear message queue after it's been processed
         msgList.Clear();
+    }
+
+    void Update()
+    {
+        ProcessMessageQueue();
     }
 }

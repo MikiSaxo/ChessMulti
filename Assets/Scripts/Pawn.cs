@@ -50,7 +50,7 @@ public class Pawn : MonoBehaviour
         if (GridManager.Instance.SelectedPawn != new Vector2Int(-1, -1)
             && GridManager.Instance.GetIfClickOnHover(_coord))
         {
-            GridManager.Instance.MovePawn(_coord);
+            GridManager.Instance.SendMovePawn(_coord);
             ResetMovement();
             return;
         }

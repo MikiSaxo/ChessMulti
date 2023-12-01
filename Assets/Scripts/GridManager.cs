@@ -170,10 +170,15 @@ public class GridManager : MonoBehaviour
         _placementEnabled.Clear();
     }
 
-    public void MovePawn(Vector2Int newPos)
+    public void SendMovePawn(Vector2Int newPos)
     {
-        // print("movepawn");
-        var oldPawn = _pawnGrid[SelectedPawn.x, SelectedPawn.y].GetComponent<Pawn>();
+        print("send move pawn");
+        PlayerIOScript.Instance.Pioconnection.Send("MOVE", SelectedPawn.x,SelectedPawn.y, newPos.x, newPos.y);
+    }
+    public void MovePawn(Vector2Int newPos, Vector2Int oldPos)
+    {
+        print("movepawn");
+        var oldPawn = _pawnGrid[oldPos.x, oldPos.y].GetComponent<Pawn>();
         var sprite = oldPawn.CurrentSprite;
         var chessColor = oldPawn.PawnColor;
         var movement = oldPawn.PossibleMovement; 
@@ -181,7 +186,6 @@ public class GridManager : MonoBehaviour
         
         _pawnGrid[newPos.x, newPos.y].GetComponent<Pawn>().InitChess(sprite, chessColor, movement, new Vector2Int(-1,-1));
 
-        PlayerIOScript.Instance.Pioconnection.Send("MOVE", SelectedPawn.x,SelectedPawn.y, newPos.x, newPos.y);
         
         SelectedPawn = new Vector2Int(-1, -1);
     }
