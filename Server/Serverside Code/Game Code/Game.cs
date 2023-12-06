@@ -73,19 +73,6 @@ namespace SamServer
                 return;
 
             func.Execute(player, message, this);
-
-
-            //switch (message.Type)
-            //{
-            //    // called when a player clicks on the ground
-            //    case "MOVE":
-
-            //        break;
-
-            //    case "TEST":
-            //        Console.WriteLine($"{message.GetInt(0)}  {message.GetString(1)}");
-            //        break;
-            //}
         }
     }
 }

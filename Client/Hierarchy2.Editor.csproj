@@ -12,7 +12,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{e805a772-1c69-7a6c-fbe4-6be1d63c68c0}</ProjectGuid>
+    <ProjectGuid>{b898a651-6f82-fbed-dad4-ba57469584ee}</ProjectGuid>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -316,34 +316,34 @@
      <HintPath>C:\Program Files\Unity 2022.3.1f1\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Analytics.Tracker">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\PackageCache\com.unity.analytics@3.8.1\Unity.Analytics.Tracker.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\PackageCache\com.unity.analytics@3.8.1\Unity.Analytics.Tracker.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Analytics.Editor">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\PackageCache\com.unity.analytics@3.8.1\Unity.Analytics.Editor.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\PackageCache\com.unity.analytics@3.8.1\Unity.Analytics.Editor.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Antlr3.Runtime">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Plastic.Newtonsoft.Json">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="log4netPlastic">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
      </Reference>
      <Reference Include="Newtonsoft.Json">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
      </Reference>
      <Reference Include="PlayerIOUnity3DClient">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Assets\Plugins\PlayerIOUnity3DClient.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Assets\Plugins\PlayerIOUnity3DClient.dll</HintPath>
      </Reference>
      <Reference Include="unityplastic">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\PackageCache\com.unity.collab-proxy@2.0.4\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Analytics.StandardEvents">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\PackageCache\com.unity.analytics@3.8.1\AnalyticsStandardEvents\Unity.Analytics.StandardEvents.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\PackageCache\com.unity.analytics@3.8.1\AnalyticsStandardEvents\Unity.Analytics.StandardEvents.dll</HintPath>
      </Reference>
      <Reference Include="nunit.framework">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\PackageCache\com.unity.ext.nunit@1.0.6\net35\unity-custom\nunit.framework.dll</HintPath>
      </Reference>
      <Reference Include="Unity.Android.Types">
      <HintPath>C:\Program Files\Unity 2022.3.1f1\Editor\Data\PlaybackEngines\AndroidPlayer\Unity.Android.Types.dll</HintPath>
@@ -730,21 +730,21 @@
      <HintPath>C:\Program Files\Unity 2022.3.1f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.UI">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.UI">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\ScriptAssemblies\UnityEngine.UI.dll</HintPath>
      </Reference>
      <Reference Include="UnityEditor.TestRunner">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\ScriptAssemblies\UnityEditor.TestRunner.dll</HintPath>
      </Reference>
      <Reference Include="UnityEngine.TestRunner">
-     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
+     <HintPath>C:\Users\samuel.charlet\Documents\ChessMulti\Client\Library\ScriptAssemblies\UnityEngine.TestRunner.dll</HintPath>
      </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Hierarchy2.Runtime.csproj">
-      <Project>{01ed9d6a-ddde-0a64-f550-6a5fee63da63}</Project>
+      <Project>{ecd2bf46-9669-a61b-7c0b-9f38097a290e}</Project>
       <Name>Hierarchy2.Runtime</Name>
     </ProjectReference>
   </ItemGroup>

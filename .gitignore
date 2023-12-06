@@ -72,3 +72,4 @@ crashlytics-build.properties
 Client/Library/
 Client/obj/
 Client/Logs/
+Client/Temp/

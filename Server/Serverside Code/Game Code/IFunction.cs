@@ -11,6 +11,5 @@ namespace SamAssemblyExample
     internal interface IFunction
     {
         void Execute(Player player, Message message, GameCode game);
-
     }
 }

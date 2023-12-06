@@ -13,6 +13,7 @@ public class PlayerIOScript : MonoBehaviour
     public Connection Pioconnection;
     private List<Message> msgList = new List<Message>(); //  Messsage queue implementation
     private bool joinedroom = false;
+    private Dictionary<string, IFunction> _functions = new Dictionary<string, IFunction>();
 
 
     private void Awake()
@@ -42,14 +43,21 @@ public class PlayerIOScript : MonoBehaviour
             MasterServerJoined,
             delegate(PlayerIOError error) { Debug.Log("Error connecting: " + error.ToString()); }
         );
+        
+        AddFunctions();
     }
 
+    private void AddFunctions()
+    {
+        _functions.Add("MOVE", new MoveC2S());
+    }
     void MasterServerJoined(Client client)
     {
         Debug.Log("Successfully connected to Player.IO");
 
         // Comment out the line below to use the live servers instead of your development server
-        client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
+        // Change "localhost" to IPv4 to connect to other people
+        //client.Multiplayer.DevelopmentServer = new ServerEndpoint("localhost", 8184);
 
         Debug.Log("CreateJoinRoom");
         //Create or join the room 
@@ -82,24 +90,16 @@ public class PlayerIOScript : MonoBehaviour
     
     private void ProcessMessageQueue()
     {
-        // print($"length msgList : {msgList.Count}");
         foreach (Message m in msgList)
         {
-            switch (m.Type)
+            if (!_functions.TryGetValue(m.Type, out IFunction func))
             {
-                case "MOVE":
-                    // string pieceId = m.GetString(0);
-                    // Vector2Int moveCoordinates = new Vector2Int(m.GetInt(1), m.GetInt(2));
-                    // UI.DebugMessage($"move piece {pieceId} to {moveCoordinates.x},{moveCoordinates.y}");
-                    // Board.MovePiece(pieceId, moveCoordinates);
-                    print($"get pos bang");
-                    int oldPosX = m.GetInt(1);
-                    int oldPosY = m.GetInt(2);
-                    int newPosX = m.GetInt(3);
-                    int newPosY = m.GetInt(4);
-                    GridManager.Instance.MovePawn(new Vector2Int(newPosX, newPosY), new Vector2Int(oldPosX, oldPosY));
-                    break;
+                Debug.LogWarning("Message not found + " + m.Type);
+                msgList.Remove(m);
+                return;
             }
+
+            func.Execute(m);
         }
 
         // Clear message queue after it's been processed
